@@ -14,6 +14,8 @@ annotation __TEdtr = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
+annotation PBIDesktopVersion = 2.146.1454.0 (25.08)+901d6c338d1dea81ac3e53073ffb10469f0f37b8
+
 ref table 'Financial table'
 
 ref cultureInfo en-US
