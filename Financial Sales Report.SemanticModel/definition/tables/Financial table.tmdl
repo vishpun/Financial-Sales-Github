@@ -1,0 +1,169 @@
+table 'Financial table'
+	lineageTag: 44f321b5-0280-41fa-abaa-6ab5639dd4aa
+
+	column Segment
+		dataType: string
+		lineageTag: c876865f-96b3-4b16-93f6-d9fba8455c86
+		summarizeBy: none
+		sourceColumn: Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: ce03309c-a034-4123-8347-cae62b82f66d
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column ' Product '
+		dataType: string
+		lineageTag: db83be10-2cf8-4f4a-b7da-7b3037da4849
+		summarizeBy: none
+		sourceColumn: " Product "
+
+		annotation SummarizationSetBy = Automatic
+
+	column ' Discount Band '
+		dataType: string
+		lineageTag: 07d13952-24d6-44a3-a851-58df82db8894
+		summarizeBy: none
+		sourceColumn: " Discount Band "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Units Sold'
+		dataType: double
+		lineageTag: 4b5ab6c6-96b2-4c97-ad9d-c8974bb35d11
+		summarizeBy: sum
+		sourceColumn: Units Sold
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ' Manufacturing Price '
+		dataType: decimal
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: a094c125-5792-4bcd-8906-84689ed42a0f
+		summarizeBy: sum
+		sourceColumn: " Manufacturing Price "
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column ' Sale Price '
+		dataType: decimal
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: 9a3efb83-92a4-4b6b-ba60-09c7c6437754
+		summarizeBy: sum
+		sourceColumn: " Sale Price "
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column ' Gross Sales '
+		dataType: decimal
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: 2a477d4c-85f6-43c1-abb7-b8f65e4c235e
+		summarizeBy: sum
+		sourceColumn: " Gross Sales "
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column ' Discounts '
+		dataType: string
+		lineageTag: 591a0713-8836-4322-88d7-88dbd260d824
+		summarizeBy: none
+		sourceColumn: " Discounts "
+
+		annotation SummarizationSetBy = Automatic
+
+	column '  Sales '
+		dataType: decimal
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: c53ae24c-ad7d-4507-9873-680f03734b17
+		summarizeBy: sum
+		sourceColumn: "  Sales "
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column ' COGS '
+		dataType: decimal
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: 205b35f2-3e1f-4c3d-af06-c01409f32d72
+		summarizeBy: sum
+		sourceColumn: " COGS "
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column ' Profit '
+		dataType: decimal
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: 5552a5be-316b-40f2-9e8d-ad4c5af63f44
+		summarizeBy: sum
+		sourceColumn: " Profit "
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 10979ac4-d650-4b9f-936e-3a44cdc5ab2e
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Month Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3fb13128-f028-471b-b306-bf825e3b8395
+		summarizeBy: sum
+		sourceColumn: Month Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ' Month Name '
+		dataType: string
+		lineageTag: 38aaa771-cef1-46e2-8092-b7d99f7bd87e
+		summarizeBy: none
+		sourceColumn: " Month Name "
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 82ec3907-2458-40d9-8b7f-ef2d87fcd465
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Financial table' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("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", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Segment = _t, Country = _t, #" Product " = _t, #" Discount Band " = _t, #"Units Sold" = _t, #" Manufacturing Price " = _t, #" Sale Price " = _t, #" Gross Sales " = _t, #" Discounts " = _t, #"  Sales " = _t, #" COGS " = _t, #" Profit " = _t, Date = _t, #"Month Number" = _t, #" Month Name " = _t, Year = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Segment", type text}, {"Country", type text}, {" Product ", type text}, {" Discount Band ", type text}, {"Units Sold", type number}, {" Manufacturing Price ", Currency.Type}, {" Sale Price ", Currency.Type}, {" Gross Sales ", Currency.Type}, {" Discounts ", type text}, {"  Sales ", Currency.Type}, {" COGS ", Currency.Type}, {" Profit ", Currency.Type}, {"Date", type date}, {"Month Number", Int64.Type}, {" Month Name ", type text}, {"Year", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
