@@ -1,6 +1,12 @@
 table 'Financial table'
 	lineageTag: 44f321b5-0280-41fa-abaa-6ab5639dd4aa
 
+	measure 'Total Sales' = SUM('Financial table'[  Sales ])
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: e6957bfd-217a-4469-8f49-c4e63594a9a1
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
 	column Segment
 		dataType: string
 		lineageTag: c876865f-96b3-4b16-93f6-d9fba8455c86
